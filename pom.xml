@@ -24,6 +24,7 @@
         <!-- 覆盖spring中自带的3.8.1版本 -->
         <commons-lang3.version>3.10</commons-lang3.version>
         <mysql.version>5.1.2</mysql.version>
+        <fastjson.version>1.2.70</fastjson.version>
         <cn-yangwanhao-base.version>1.0.0</cn-yangwanhao-base.version>
     </properties>
 
@@ -40,6 +41,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
@@ -47,6 +52,7 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- 三方Spring Starter -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -62,11 +68,21 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid-alibaba-spring-starter.version}</version>
             </dependency>
+
+            <!-- 其他 -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+                <scope>runtime</scope>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- 自己的依赖 -->
             <dependency>
                 <groupId>cn.yangwanhao</groupId>
                 <artifactId>base</artifactId>
